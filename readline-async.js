@@ -1,7 +1,7 @@
 /**
  * Instantiates a readline `Interface` (RLI) with the following additional features:
  *
- * - `rl.spawnAsyncProcess()` - Spawns a new process within the RLI to asynchronously run a given command. Leaves the event loop unblocked but with the appearance of running synchronously. I.e., the user cannot enter input (e.g., commands) during the process, but can terminate the process with `^C` and return to the RLI. In contrast, Node's default RLI blocks the event loop, requiring the user to externally kill the entire RLI process.
+ * - `rl.spawnAsyncProcess()` - Spawns a new child process within the RLI to asynchronously run a given command. Leaves the event loop unblocked but with the appearance of running synchronously. I.e., the user cannot enter input (e.g., commands) during the process, but can terminate the process with `^C` and return to the RLI. In contrast, Node's default RLI blocks the event loop, requiring the user to externally kill the entire RLI process.
  *
  * - `rl.setCommands()` - Assigns commands for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
  *
@@ -167,7 +167,7 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
 }
 
 /**
- * Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
+ * Assigns `commands` for the RLI to parse as `.command` and execute. Automatically implements `tab` autocompletion for the command names.
  *
  * Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
  *
