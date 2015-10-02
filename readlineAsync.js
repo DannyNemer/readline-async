@@ -1,3 +1,10 @@
+/**
+ * @license
+ * readline-async 0.0.1 - An extension of Node's readline `Interface` with asynchronicity.
+ * Copyright 2015 Danny Nemer
+ * Available under MIT license <http://opensource.org/licenses/MIT>
+ */
+
 var readline = require('readline')
 var childProcess = require('child_process')
 var util = require('dantil')
