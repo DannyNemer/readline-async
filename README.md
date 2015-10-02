@@ -1,6 +1,8 @@
 # readline-async
 
 An extension of Node's readline `Interface` with asynchronicity.
+#### Description
+
 Instantiates a readline `Interface` (RLI) with the following additional features:
 
 - `rl.spawnAsyncProcess()` - Spawns a new process within the RLI to asynchronously run a given command. Leaves the event loop unblocked but with the appearance of running synchronously. I.e., the user cannot enter input (e.g., commands) during the process, but can terminate the process with `^C` and return to the RLI. In contrast, Node's default RLI blocks the event loop, requiring the user to externally kill the entire RLI process.
@@ -21,8 +23,8 @@ var rl = require('readline-async')
 <!-- div -->
 
 ## `Methods`
-* <a href="#spawnAsyncProcess">`spawnAsyncProcess`</a>
-* <a href="#setCommands">`setCommands`</a>
+* <a href="#rl-prototype-spawnAsyncProcess">`rl.prototype.spawnAsyncProcess`</a>
+* <a href="#rl-prototype-setCommands">`rl.prototype.setCommands`</a>
 
 <!-- /div -->
 
@@ -36,8 +38,8 @@ var rl = require('readline-async')
 
 <!-- div -->
 
-### <a id="spawnAsyncProcess"></a>`spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L91 "View in source") [&#x24C9;][1]
+### <a id="rl-prototype-spawnAsyncProcess"></a>`rl.prototype.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
+<a href="#rl-prototype-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L92 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -71,8 +73,8 @@ rl.setCommands({
 
 <!-- div -->
 
-### <a id="setCommands"></a>`setCommands(commands)`
-<a href="#setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L180 "View in source") [&#x24C9;][1]
+### <a id="rl-prototype-setCommands"></a>`rl.prototype.setCommands(commands)`
+<a href="#rl-prototype-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L182 "View in source") [&#x24C9;][1]
 
 Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
 <br>

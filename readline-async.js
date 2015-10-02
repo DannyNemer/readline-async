@@ -72,6 +72,7 @@ rl.on('SIGINT', function () {
  *
  * Disables the RLI's `stdio` (input and output) while the child is processing, except for `^C` (`SIGINT`) to terminate the child. Restores the RLI `stdio` when the child exits or terminates.
  *
+ * @memberOf rl
  * @param {string} command The command to run as a child process.
  * @param {string[]} args The command line arguments for `command`.
  * @param {string|Array} [stdio=[ 'ignore', process.stdout, process.stderr ]] The optional child process's `stdio` configuration.
@@ -162,6 +163,7 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  *
  * Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
  *
+ * @memberOf rl
  * @param {Object} commands The functions the RLI will parse and execute.
  * @example
  *
