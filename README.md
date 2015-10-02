@@ -21,8 +21,8 @@ var rl = require('readline-async')
 <!-- div -->
 
 ## `Methods`
-* <a href="#setCommands">`setCommands`</a>
 * <a href="#spawnAsyncProcess">`spawnAsyncProcess`</a>
+* <a href="#setCommands">`setCommands`</a>
 
 <!-- /div -->
 
@@ -36,39 +36,8 @@ var rl = require('readline-async')
 
 <!-- div -->
 
-### <a id="setCommands"></a>`setCommands(commands)`
-<a href="#setCommands">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L88 "View in source") [&#x24C9;][1]
-
-Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
-<br>
-<br>
-Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
-
-#### Arguments
-1. `commands` *(Object)*: The functions the RLI will parse and execute.
-
-#### Example
-```js
-rl.setCommands({
-  echo: function (string) {
-    console.log(string)
-  }
-})
-```
-```
-> <tab>
-=> .echo
-> .ec<tab> -> .echo -> .echo hello
-=> hello
-```
-* * *
-
-<!-- /div -->
-
-<!-- div -->
-
 ### <a id="spawnAsyncProcess"></a>`spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#spawnAsyncProcess">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L137 "View in source") [&#x24C9;][1]
+<a href="#spawnAsyncProcess">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L91 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -95,6 +64,37 @@ rl.setCommands({
     ])
   }
 })
+```
+* * *
+
+<!-- /div -->
+
+<!-- div -->
+
+### <a id="setCommands"></a>`setCommands(commands)`
+<a href="#setCommands">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L180 "View in source") [&#x24C9;][1]
+
+Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
+<br>
+<br>
+Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
+
+#### Arguments
+1. `commands` *(Object)*: The functions the RLI will parse and execute.
+
+#### Example
+```js
+rl.setCommands({
+  echo: function (string) {
+    console.log(string)
+  }
+})
+```
+```
+> <tab>
+=> .echo
+> .ec<tab> -> .echo -> .echo hello
+=> hello
 ```
 * * *
 
