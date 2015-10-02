@@ -66,7 +66,7 @@ rl.on('line', function (line) {
 <!-- div -->
 
 ### <a id="rl-prototype-spawnAsyncProcess"></a>`rl.prototype.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-prototype-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L100 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L55 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -109,7 +109,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-prototype-setCommands"></a>`rl.prototype.setCommands(commands)`
-<a href="#rl-prototype-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L194 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L149 "View in source") [&#x24C9;][1]
 
 Assigns `commands` for the RLI to parse as `.command` and execute. Automatically implements `tab` autocompletion for the command names.
 <br>
