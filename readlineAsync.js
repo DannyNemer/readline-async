@@ -9,7 +9,7 @@ var readline = require('readline')
 var childProcess = require('child_process')
 var util = require('dantil')
 
-// Instantiates a readline `Interface`.
+// Instantiate a readline `Interface`.
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -169,7 +169,7 @@ rl.setCommands = function (commands) {
   }
 }
 
-// Automatically remove older history lines that duplicate new ones.
+// Override default `Interface.prototype._addHistory` to automatically remove older history lines that duplicate new ones.
 rl.historyNoDups = true
 rl._addHistory = function () {
   if (this.line.length === 0) return ''

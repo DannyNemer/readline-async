@@ -30,7 +30,7 @@ rl.setCommands({
   }
 })
 
-// Readies RLI for input and displays the beautiful prompt character.
+// Ready RLI for input and display the beautiful prompt character.
 rl.prompt()
 
 // Listen for when the user hits `return` or `enter`.
