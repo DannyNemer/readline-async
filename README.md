@@ -1,6 +1,6 @@
 # readline-async
 
-An extension of Node's readline `Interface` with asynchronicity.
+An asynchronous readline interface for Node.js.
 
 #### Description
 Instantiates a readline `Interface` (RLI) with the following additional features:
@@ -42,6 +42,7 @@ rl.on('line', function (line) {
   rl.prompt()
 })
 ```
+
 
 <!-- div class="toc-container" -->
 

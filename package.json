@@ -1,7 +1,7 @@
 {
   "name": "readline-async",
   "version": "0.0.1",
-  "description": "An extension of Node's readline `Interface` with asynchronicity.",
+  "description": "An asynchronous readline interface for Node.js.",
   "main": "readlineAsync.js",
   "dependencies": {
     "dantil": "github:dannynemer/dantil"
