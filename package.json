@@ -23,5 +23,8 @@
   "homepage": "https://github.com/DannyNemer/readline-async#readme",
   "dependencies": {
     "dantil": "github:dannynemer/dantil"
+  },
+  "devDependencies": {
+    "docdown": "^0.2.1"
   }
 }
