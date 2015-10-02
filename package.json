@@ -1,0 +1,27 @@
+{
+  "name": "readline-async",
+  "version": "0.0.1",
+  "description": "An extension of Node's readline `Interface` with asynchronicity.",
+  "main": "readline-async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DannyNemer/readline-async.git"
+  },
+  "keywords": [
+    "readline",
+    "async",
+    "cli"
+  ],
+  "author": "Danny Nemer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DannyNemer/readline-async/issues"
+  },
+  "homepage": "https://github.com/DannyNemer/readline-async#readme",
+  "dependencies": {
+    "dantil": "github:dannynemer/dantil"
+  }
+}
