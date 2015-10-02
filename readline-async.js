@@ -80,14 +80,22 @@ rl.on('SIGINT', function () {
  * @example
  *
  * rl.setCommands({
- *   // Benchmark the duration of executing the test suite [<n> times].
  *   benchmark: function (numRuns) {
+ *     // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
  *     rl.spawnAsyncProcess('node', [
- *       '../benchmark/benchmark.js',
+ *       './benchmark.js',
  *       '--num-runs=' + (isNaN(numRuns) ? 1 : numRuns),
  *     ])
  *   }
  * })
+ * ```
+ * ```
+ * ❯ .benchmark
+ * ...executing stuff in benchmark.js...
+ * ...
+ * → user sends `^C` from command line
+ * Error: Child process terminated due to receipt of signal SIGINT
+ * ❯
  */
 rl.spawnAsyncProcess = function (command, args, stdio, callback) {
   // Check arity.
@@ -170,14 +178,18 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  * rl.setCommands({
  *   echo: function (string) {
  *     console.log(string)
+ *   },
+ *   exit: function () {
+ *     rl.close()
  *   }
  * })
  * ```
  * ```
- * > <tab>
- * => .echo
- * > .ec<tab> -> .echo -> .echo hello
- * => hello
+ * ❯ <tab>
+ * .echo  .exit
+ *
+ * ❯ .e → .ec<tab> → .echo → .echo hello
+ * hello
  */
 rl.setCommands = function (commands) {
   this.commands = commands

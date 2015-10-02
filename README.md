@@ -39,7 +39,7 @@ var rl = require('readline-async')
 <!-- div -->
 
 ### <a id="rl-prototype-spawnAsyncProcess"></a>`rl.prototype.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-prototype-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L92 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L100 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -58,14 +58,22 @@ Disables the RLI's `stdio` (input and output) while the child is processing, exc
 #### Example
 ```js
 rl.setCommands({
-  // Benchmark the duration of executing the test suite [<n> times].
   benchmark: function (numRuns) {
+    // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
     rl.spawnAsyncProcess('node', [
-      '../benchmark/benchmark.js',
+      './benchmark.js',
       '--num-runs=' + (isNaN(numRuns) ? 1 : numRuns),
     ])
   }
 })
+```
+```
+❯ .benchmark
+...executing stuff in benchmark.js...
+...
+→ user sends `^C` from command line
+Error: Child process terminated due to receipt of signal SIGINT
+❯
 ```
 * * *
 
@@ -74,7 +82,7 @@ rl.setCommands({
 <!-- div -->
 
 ### <a id="rl-prototype-setCommands"></a>`rl.prototype.setCommands(commands)`
-<a href="#rl-prototype-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L182 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L194 "View in source") [&#x24C9;][1]
 
 Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
 <br>
@@ -89,14 +97,18 @@ Commands are executed in the RLI with a leading period followed by the command n
 rl.setCommands({
   echo: function (string) {
     console.log(string)
+  },
+  exit: function () {
+    rl.close()
   }
 })
 ```
 ```
-> <tab>
-=> .echo
-> .ec<tab> -> .echo -> .echo hello
-=> hello
+❯ <tab>
+.echo  .exit
+
+❯ .e → .ec<tab> → .echo → .echo hello
+hello
 ```
 * * *
 
