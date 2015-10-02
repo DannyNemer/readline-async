@@ -2,9 +2,12 @@ var docdown = require('docdown')
 var fs = require('fs')
 var packageFile = require('../package.json')
 
+var url = packageFile.repository.url
+url = url.slice(url.indexOf('http'), url.indexOf('.git')) + '/blob/master/' + packageFile.main
+
 fs.writeFileSync('../README.md', docdown({
 	path: '../' + packageFile.main,
-	url: packageFile.repository.url,
+	url: url,
 	toc: 'categories',
 	sort: false,
 	title: packageFile.name,

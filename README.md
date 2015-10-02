@@ -37,7 +37,7 @@ var rl = require('readline-async')
 <!-- div -->
 
 ### <a id="spawnAsyncProcess"></a>`spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#spawnAsyncProcess">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L91 "View in source") [&#x24C9;][1]
+<a href="#spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L91 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -72,7 +72,7 @@ rl.setCommands({
 <!-- div -->
 
 ### <a id="setCommands"></a>`setCommands(commands)`
-<a href="#setCommands">#</a> [&#x24C8;](git+https://github.com/DannyNemer/readline-async.git#L180 "View in source") [&#x24C9;][1]
+<a href="#setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readline-async.js#L180 "View in source") [&#x24C9;][1]
 
 Assigns `commands` for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
 <br>
