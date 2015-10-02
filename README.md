@@ -16,6 +16,30 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 #### Usage
 ```javascript
 var rl = require('readline-async')
+
+rl.setCommands({
+  benchmark: function (numRuns) {
+    // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
+    rl.spawnAsyncProcess('node', [
+      './benchmark.js',
+      '--num-runs=' + (isNaN(numRuns) ? 1 : numRuns),
+    ])
+  },
+  echo: function (string) {
+    console.log(string)
+  },
+  exit: function () {
+    rl.close()
+  }
+})
+
+rl.prompt()
+
+rl.on('line', function (line) {
+  // Unimplemented.
+
+  rl.prompt()
+})
 ```
 
 <!-- div class="toc-container" -->
