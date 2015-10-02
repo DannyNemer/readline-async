@@ -4,7 +4,8 @@
   "description": "An extension of Node's readline `Interface` with asynchronicity.",
   "main": "readlineAsync.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "node ./doc/parse.js"
   },
   "repository": {
     "type": "git",
