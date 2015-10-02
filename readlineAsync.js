@@ -15,6 +15,7 @@ var rl = readline.createInterface({
  *
  * Disables the RLI's `stdio` (input and output) while the child is processing, except for `^C` (`SIGINT`) to terminate the child. Restores the RLI `stdio` when the child exits or terminates.
  *
+ * @static
  * @memberOf rl
  * @param {string} command The command to run as a child process.
  * @param {string[]} args The command line arguments for `command`.
@@ -27,7 +28,7 @@ var rl = readline.createInterface({
  *     // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
  *     rl.spawnAsyncProcess('node', [
  *       './benchmark.js',
- *       '--num-runs=' + (isNaN(numRuns) ? 1 : numRuns),
+ *       '--num-runs=' + (numRuns || 1),
  *     ])
  *   }
  * })
@@ -114,6 +115,7 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  *
  * Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
  *
+ * @static
  * @memberOf rl
  * @param {Object} commands The functions the RLI will parse and execute.
  * @example
