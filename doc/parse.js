@@ -14,6 +14,8 @@ fs.writeFileSync(repoRootPath + 'README.md', docdown({
 	title: package.name,
 	// Load README introduction from 'introduction.md'.
 	introduction: fs.readFileSync(__dirname + '/introduction.md', 'utf8'),
+	// Organize methods by property.
+	toc: 'properties',
 	// Do not alphabetically sort functions and categories.
 	sort: false,
 }))
