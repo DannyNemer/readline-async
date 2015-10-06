@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "An asynchronous readline interface for Node.js.",
   "main": "readlineAsync.js",
+  "directories": {
+    "doc": "doc"
+  },
   "dependencies": {
     "dantil": "github:dannynemer/dantil"
   },
