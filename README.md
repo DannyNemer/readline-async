@@ -15,6 +15,11 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
 
+#### Installation
+```shell
+npm install dannynemer/dantil
+```
+
 #### Usage
 ```js
 // Instantiate a readline `Interface`.
