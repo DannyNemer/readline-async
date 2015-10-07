@@ -23,12 +23,12 @@ npm install dannynemer/dantil
 // Instantiate a readline `Interface`.
 var rl = require('readline-async')
 
-// Register RLI commands, executed via `.command`.
+// Register commands, executed via `.command`.
 rl.addCommands({
   benchmark: function (numRuns) {
-    // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
+    // Run 'myBenchmark.js' as asynchronous child process (the user can terminate).
     rl.spawnAsyncProcess('node', [
-      './benchmark.js',
+      './myBenchmark.js',
       '--num-runs=' + (numRuns || 1),
     ])
   },
@@ -43,6 +43,6 @@ rl.onLine(function (line) {
   console.log('Unrecognized command:', line)
 })
 
-// Ready RLI for input and display the beautiful prompt character.
+// Ready input and display the beautiful prompt character.
 rl.prompt()
 ```
