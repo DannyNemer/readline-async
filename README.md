@@ -7,19 +7,19 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.spawnAsyncProcess()` - Spawns a new child process within the RLI to asynchronously run a given command. Leaves the event loop unblocked but with the appearance of running synchronously. I.e., the user cannot enter input (e.g., commands) during the process, but can terminate the process with `^C` and return to the RLI. In contrast, Node's default RLI blocks the event loop, requiring the user to externally kill the entire RLI process.
 
-- `rl.setCommands()` - Assigns commands for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
+- `rl.setCommands()` - Registers commands for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
 
 - Automatically removes older history lines that duplicate new ones.
 
-- Listens for `^C` (`SIGINT`) in the input stream to confirm exiting the RLI.
+- Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
 
 #### Usage
-```javascript
+```js
 // Instantiate a readline `Interface`.
 var rl = require('readline-async')
 
-// Assign commands to the RLI, executed via `.command`.
 rl.setCommands({
+// Register RLI commands, executed via `.command`.
   benchmark: function (numRuns) {
     // Run 'benchmark.js' as an asynchronous child process (the user can terminate).
     rl.spawnAsyncProcess('node', [
@@ -64,7 +64,7 @@ rl.on('line', function (line) {
 <!-- div -->
 
 ### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L51 "View in source") [&#x24C9;][1]
+<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L54 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -92,7 +92,7 @@ rl.setCommands({
   }
 })
 ```
-```
+```shell
 ❯ .benchmark
 ...executing stuff in 'benchmark.js'...
 ...
@@ -107,9 +107,9 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-setCommands"></a>`rl.setCommands(commands)`
-<a href="#rl-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L146 "View in source") [&#x24C9;][1]
+<a href="#rl-setCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L149 "View in source") [&#x24C9;][1]
 
-Assigns `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
+Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
 <br>
 Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
@@ -128,7 +128,7 @@ rl.setCommands({
   }
 })
 ```
-```
+```shell
 ❯ <tab>
 .echo  .exit
 
