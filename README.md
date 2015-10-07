@@ -9,6 +9,8 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.addCommands()` - Registers commands for the RLI to parse and execute. Automatically implements `tab` autocompletion for the command names.
 
+- `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
+
 - Automatically removes older history lines that duplicate new ones.
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
@@ -32,15 +34,14 @@ rl.addCommands({
   }
 })
 
+// Listen for when the user hits `return` or `enter`, and the input is not a
+// registered command.
+rl.onLine(function (line) {
+  console.log('Unrecognized command:', line)
+})
+
 // Ready RLI for input and display the beautiful prompt character.
 rl.prompt()
-
-// Listen for when the user hits `return` or `enter`.
-rl.on('line', function (line) {
-  // Unimplemented.
-
-  rl.prompt()
-})
 ```
 
 <!-- div class="toc-container" -->
@@ -50,6 +51,7 @@ rl.on('line', function (line) {
 ## `rl`
 * <a href="#rl-spawnAsyncProcess">`rl.spawnAsyncProcess`</a>
 * <a href="#rl-addCommands">`rl.addCommands`</a>
+* <a href="#rl-onLine">`rl.onLine`</a>
 
 <!-- /div -->
 
@@ -134,6 +136,28 @@ rl.addCommands({
 
 ❯ .e → .ec<tab> → .echo → .echo hello
 hello
+```
+* * *
+
+<!-- /div -->
+
+<!-- div -->
+
+### <a id="rl-onLine"></a>`rl.onLine(func)`
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L190 "View in source") [&#x24C9;][1]
+
+Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command (set by `rl.addCommands()`).
+
+#### Arguments
+1. `func` *(Function)*: The function invoked per RLI input that is not a registered command. Passed the input line as the only argument.
+
+#### Example
+```js
+// Listen for when the user hits `return` or `enter`, and the input is not a
+// registered command.
+rl.onLine(function (line) {
+  console.log('Unrecognized command:', line)
+})
 ```
 * * *
 
