@@ -71,7 +71,7 @@ rl.prompt()
 <!-- div -->
 
 ### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L69 "View in source") [&#x24C9;][1]
+<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L70 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -86,6 +86,9 @@ Disables the RLI's `stdio` (input and output) while the child is processing, exc
 2. `args` *(string&#91;&#93;)*: The command line arguments for `command`.
 3. `[stdio=[ 'ignore', process.stdout, process.stderr ]]` *(string|Array)*: The optional child process's `stdio` configuration.
 4. `[callback]` *(Function)*: The optional function to execute after the child process exits and before returning control to the RLI.
+
+#### Returns
+*(ChildProcess)*:  Returns the spawned `ChildProcess`.
 
 #### Example
 ```js
@@ -114,7 +117,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands(commands)`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L166 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L169 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -149,7 +152,7 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L192 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L195 "View in source") [&#x24C9;][1]
 
 Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command (set by `rl.addCommands()`).
 
