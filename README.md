@@ -39,8 +39,7 @@ rl.addCommands({
   }
 })
 
-// Listen for when the user hits `return` or `enter`, and the input is not a
-// registered command.
+// Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
   console.log('Unrecognized command:', line)
 })
@@ -152,17 +151,16 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L195 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L194 "View in source") [&#x24C9;][1]
 
-Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command (set by `rl.addCommands()`).
+Assigns a function to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
 #### Arguments
 1. `func` *(Function)*: The function invoked per RLI input that is not a registered command. Passed the input line as the only argument.
 
 #### Example
 ```js
-// Listen for when the user hits `return` or `enter`, and the input is not a
-// registered command.
+// Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
   console.log('Unrecognized command:', line)
 })

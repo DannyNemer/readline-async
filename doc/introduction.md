@@ -37,8 +37,7 @@ rl.addCommands({
   }
 })
 
-// Listen for when the user hits `return` or `enter`, and the input is not a
-// registered command.
+// Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
   console.log('Unrecognized command:', line)
 })
