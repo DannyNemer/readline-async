@@ -25,15 +25,16 @@ var rl = require('readline-async')
 
 // Register commands, executed via `.command`.
 rl.addCommands({
-  benchmark: function (numRuns) {
-    // Run 'myBenchmark.js' as asynchronous child process (the user can terminate).
-    rl.spawnAsyncProcess('node', [
-      './myBenchmark.js',
-      '--num-runs=' + (numRuns || 1),
-    ])
-  },
-  echo: function (string) {
+  name: 'echo',
+  description: 'Write arguments to the standard output.',
+  func: function (string) {
     console.log(string)
+  }
+}, {
+  name: 'exit',
+  description: 'Terminate RLI.',
+  func: function (string) {
+    rl.close()
   }
 })
 
