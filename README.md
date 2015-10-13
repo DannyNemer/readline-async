@@ -11,6 +11,8 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
 
+- Automatically implements `.help` command, which displays the registered command names and descriptions, and is also invoked when the RLI receives an unrecognized command.
+
 - Automatically removes older history lines that duplicate new ones.
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
@@ -48,6 +50,14 @@ rl.onLine(function (line) {
 // Ready input and display the beautiful prompt character.
 rl.prompt()
 ```
+RLI ran from command line (with autocompletion and auto-implemented `.help` command):
+```
+❯ <tab>
+.echo  .exit  .help
+
+❯ . → .ec<tab> → .echo → .echo hello
+hello
+```
 
 <!-- div class="toc-container" -->
 
@@ -71,7 +81,7 @@ rl.prompt()
 <!-- div -->
 
 ### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L73 "View in source") [&#x24C9;][1]
+<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L76 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -117,7 +127,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands(commands)`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L180 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L184 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -143,11 +153,12 @@ rl.addCommands({
   }
 })
 ```
+RLI ran from command line (with autocompletion and auto-implemented `.help` command):
 ```
 ❯ <tab>
-.echo  .exit
+.echo  .exit  .help
 
-❯ .e → .ec<tab> → .echo → .echo hello
+❯ . → .ec<tab> → .echo → .echo hello
 hello
 ```
 * * *
@@ -157,7 +168,7 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L232 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L269 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 

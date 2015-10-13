@@ -9,6 +9,8 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
 
+- Automatically implements `.help` command, which displays the registered command names and descriptions, and is also invoked when the RLI receives an unrecognized command.
+
 - Automatically removes older history lines that duplicate new ones.
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
@@ -45,4 +47,12 @@ rl.onLine(function (line) {
 
 // Ready input and display the beautiful prompt character.
 rl.prompt()
+```
+RLI ran from command line (with autocompletion and auto-implemented `.help` command):
+```
+❯ <tab>
+.echo  .exit  .help
+
+❯ . → .ec<tab> → .echo → .echo hello
+hello
 ```
