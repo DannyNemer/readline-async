@@ -54,9 +54,15 @@ RLI ran from command line (with autocompletion and auto-implemented `.help` comm
 ```
 ❯ <tab>
 .echo  .exit  .help
-
 ❯ . → .ec<tab> → .echo → .echo hello
 hello
+❯ .foo
+Commands
+  .echo  Write arguments to the standard output.
+  .exit  Terminate RLI.
+  .help  Print this screen.
+
+Unrecognized command: .foo
 ```
 
 <!-- div class="toc-container" -->
@@ -127,7 +133,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands(commands)`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L184 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L190 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -157,9 +163,15 @@ RLI ran from command line (with autocompletion and auto-implemented `.help` comm
 ```
 ❯ <tab>
 .echo  .exit  .help
-
 ❯ . → .ec<tab> → .echo → .echo hello
 hello
+❯ .foo
+Commands
+  .echo  Write arguments to the standard output.
+  .exit  Terminate RLI.
+  .help  Print this screen.
+
+Unrecognized command: .foo
 ```
 * * *
 
@@ -168,7 +180,7 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L269 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L275 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 

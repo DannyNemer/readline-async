@@ -52,7 +52,13 @@ RLI ran from command line (with autocompletion and auto-implemented `.help` comm
 ```
 ❯ <tab>
 .echo  .exit  .help
-
 ❯ . → .ec<tab> → .echo → .echo hello
 hello
+❯ .foo
+Commands
+  .echo  Write arguments to the standard output.
+  .exit  Terminate RLI.
+  .help  Print this screen.
+
+Unrecognized command: .foo
 ```
