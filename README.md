@@ -157,12 +157,12 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L229 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L232 "View in source") [&#x24C9;][1]
 
-Assigns a function to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
+Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
 #### Arguments
-1. `func` *(Function)*: The function invoked per RLI input that is not a registered command. Passed the input line as the only argument.
+1. `func` *(Function)*: The event handler invoked per RLI input that is not a registered command. Passed the input line as the only argument.
 
 #### Example
 ```js
