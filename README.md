@@ -55,7 +55,7 @@ rl.prompt()
 
 ## `rl`
 * <a href="#rl-spawnAsyncProcess">`rl.spawnAsyncProcess`</a>
-* <a href="#rl-commandSchema">`rl.commandSchema`</a>
+* <a href="#rl-addCommands">`rl.addCommands`</a>
 * <a href="#rl-onLine">`rl.onLine`</a>
 
 <!-- /div -->
@@ -116,8 +116,8 @@ Error: Child process terminated due to receipt of signal SIGINT
 
 <!-- div -->
 
-### <a id="rl-commandSchema"></a>`rl.commandSchema(commands)`
-<a href="#rl-commandSchema">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L180 "View in source") [&#x24C9;][1]
+### <a id="rl-addCommands"></a>`rl.addCommands(commands)`
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L180 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -157,7 +157,7 @@ hello
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L227 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L229 "View in source") [&#x24C9;][1]
 
 Assigns a function to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
