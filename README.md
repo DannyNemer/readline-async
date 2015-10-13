@@ -29,16 +29,19 @@ var rl = require('readline-async')
 
 // Register commands, executed via `.command`.
 rl.addCommands({
+  name: 'benchmark',
+  description: 'Run \'myBenchmark.js\' as terminable asynchronous child process.',
+  func: function (numRuns) {
+    rl.spawnAsyncProcess('node', [
+      './myBenchmark.js',
+      '--num-runs=' + (numRuns || 1),
+    ])
+  }
+}, {
   name: 'echo',
   description: 'Write arguments to the standard output.',
   func: function (string) {
     console.log(string)
-  }
-}, {
-  name: 'exit',
-  description: 'Terminate RLI.',
-  func: function (string) {
-    rl.close()
   }
 })
 
@@ -53,14 +56,19 @@ rl.prompt()
 RLI ran from command line (with autocompletion and auto-implemented `.help` command):
 ```
 ❯ <tab>
-.echo  .exit  .help
-❯ . → .ec<tab> → .echo → .echo hello
+.benchmark .echo  .exit  .help
+❯ . → .e<tab> → .echo → .echo hello
 hello
+❯ .benchmark
+...executing stuff in 'myBenchmark.js'...
+...
+→ user sends `^C` from command line
+Error: Child process terminated due to receipt of signal SIGINT
 ❯ .foo
 Commands
-  .echo  Write arguments to the standard output.
-  .exit  Terminate RLI.
-  .help  Print this screen.
+  .benchmark  Run 'myBenchmark.js' as terminable asynchronous child process.
+  .echo       Write arguments to the standard output.
+  .help       Print this screen.
 
 Unrecognized command: .foo
 ```
@@ -87,7 +95,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L76 "View in source") [&#x24C9;][1]
+<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L77 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -109,8 +117,9 @@ Temporarily disables the RLI's `stdio` (input and output) while the child is pro
 #### Example
 ```js
 rl.addCommands({
-  benchmark: function (numRuns) {
-    // Run 'myBenchmark.js' as asynchronous child process (the user can terminate).
+  name: 'benchmark',
+  description: 'Run \'myBenchmark.js\' as terminable asynchronous child process.',
+  func: function (numRuns) {
     rl.spawnAsyncProcess('node', [
       './myBenchmark.js',
       '--num-runs=' + (numRuns || 1),
@@ -133,7 +142,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands(commands)`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L190 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L191 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -180,7 +189,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L275 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L276 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 

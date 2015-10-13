@@ -27,16 +27,19 @@ var rl = require('readline-async')
 
 // Register commands, executed via `.command`.
 rl.addCommands({
+  name: 'benchmark',
+  description: 'Run \'myBenchmark.js\' as terminable asynchronous child process.',
+  func: function (numRuns) {
+    rl.spawnAsyncProcess('node', [
+      './myBenchmark.js',
+      '--num-runs=' + (numRuns || 1),
+    ])
+  }
+}, {
   name: 'echo',
   description: 'Write arguments to the standard output.',
   func: function (string) {
     console.log(string)
-  }
-}, {
-  name: 'exit',
-  description: 'Terminate RLI.',
-  func: function (string) {
-    rl.close()
   }
 })
 
@@ -51,14 +54,19 @@ rl.prompt()
 RLI ran from command line (with autocompletion and auto-implemented `.help` command):
 ```
 ❯ <tab>
-.echo  .exit  .help
-❯ . → .ec<tab> → .echo → .echo hello
+.benchmark .echo  .exit  .help
+❯ . → .e<tab> → .echo → .echo hello
 hello
+❯ .benchmark
+...executing stuff in 'myBenchmark.js'...
+...
+→ user sends `^C` from command line
+Error: Child process terminated due to receipt of signal SIGINT
 ❯ .foo
 Commands
-  .echo  Write arguments to the standard output.
-  .exit  Terminate RLI.
-  .help  Print this screen.
+  .benchmark  Run 'myBenchmark.js' as terminable asynchronous child process.
+  .echo       Write arguments to the standard output.
+  .help       Print this screen.
 
 Unrecognized command: .foo
 ```
