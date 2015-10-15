@@ -53,25 +53,8 @@ rl.onLine(function (line) {
 // Ready input and display the beautiful prompt character.
 rl.prompt()
 ```
-RLI ran from command line (with autocompletion and auto-implemented `.help` command):
-```
-❯ <tab>
-.benchmark .echo  .exit  .help
-❯ . → .e<tab> → .echo → .echo hello
-hello
-❯ .benchmark
-...executing stuff in 'myBenchmark.js'...
-...
-→ user sends `^C` from command line
-Error: Child process terminated due to receipt of signal SIGINT
-❯ .foo
-Commands
-  .benchmark  Run 'myBenchmark.js' as terminable asynchronous child process.
-  .echo       Write arguments to the standard output.
-  .help       Print this screen.
-
-Unrecognized command: .foo
-```
+RLI when ran from command line (with autocompletion and auto-implemented `.help` command):
+![readline-async demo](https://raw.githubusercontent.com/DannyNemer/readline-async/master/doc/demo.gif)
 
 <!-- div class="toc-container" -->
 
