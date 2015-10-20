@@ -9,7 +9,7 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
 
-- Automatically implements `.help` command, which displays the registered command names and descriptions, and is also invoked when the RLI receives an unrecognized command.
+- Automatically implements `.help` command, which displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
 
 - Automatically removes older history lines that duplicate new ones.
 
@@ -27,17 +27,18 @@ var rl = require('readline-async')
 
 // Register commands, executed via `.command`.
 rl.addCommands({
-  name: 'benchmark',
-  description: 'Run \'myBenchmark.js\' as terminable asynchronous child process.',
+  name: 'test',
+  argNames: [ '[<n>]' ],
+  description: 'Run \'myTest.js\' [<n> times] as terminable asynchronous process.',
   func: function (numRuns) {
     rl.spawnAsyncProcess('node', [
-      './myBenchmark.js',
+      './myTest.js',
       '--num-runs=' + (numRuns || 1),
     ])
-  }
 }, {
   name: 'echo',
-  description: 'Write arguments to the standard output.',
+  argNames: [ '<string>...' ],
+  description: 'Write <string>... to the standard output.',
   func: function (string) {
     console.log(string)
   }
