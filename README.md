@@ -47,7 +47,7 @@ rl.addCommands({
 
 // Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
-  console.log('Unrecognized command:', line)
+  console.log('Thank you for your input:', line)
 })
 
 // Ready input and display the beautiful prompt character.
@@ -172,7 +172,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L276 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L277 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
@@ -183,7 +183,7 @@ Assigns an event handler to invoke when the user hits `return` or `enter` and th
 ```js
 // Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
-  console.log('Unrecognized command:', line)
+  console.log('Thank you for your input:', line)
 })
 ```
 * * *

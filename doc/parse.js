@@ -6,7 +6,7 @@ var repoRootPath = __dirname + '/../'
 
 // Generate README from JSDoc.
 fs.writeFileSync(repoRootPath + 'README.md', docdown({
-	// Path to file to parse.
+	// Path of file to parse.
 	path: repoRootPath + package.main,
 	// Remove leading 'git+' and trailing '.git' from repository url.
 	url: package.repository.url.slice(4, -4) + '/blob/master/' + package.main,

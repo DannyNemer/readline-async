@@ -45,7 +45,7 @@ rl.addCommands({
 
 // Listen for when the user hits `return` and the input is not a registered command.
 rl.onLine(function (line) {
-  console.log('Unrecognized command:', line)
+  console.log('Thank you for your input:', line)
 })
 
 // Ready input and display the beautiful prompt character.
