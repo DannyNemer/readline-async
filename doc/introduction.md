@@ -48,9 +48,6 @@ rl.addCommands({
 rl.onLine(function (line) {
   console.log('Thank you for your input:', line)
 })
-
-// Ready input and display the beautiful prompt character.
-rl.prompt()
 ```
 RLI when ran from command line (with autocompletion and auto-implemented `.help` command):
 ![readline-async demo](https://raw.githubusercontent.com/DannyNemer/readline-async/master/doc/demo.gif)
