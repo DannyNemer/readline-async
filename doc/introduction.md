@@ -28,13 +28,9 @@ var rl = require('readline-async')
 // Register commands, executed via `.command`.
 rl.addCommands({
   name: 'test',
-  argNames: [ '[<n>]' ],
-  description: 'Run \'myTest.js\' [<n> times] as terminable asynchronous process.',
+  description: 'Run \'myTest.js\' as terminable asynchronous child process.',
   func: function (numRuns) {
-    rl.spawnAsyncProcess('node', [
-      './myTest.js',
-      '--num-runs=' + (numRuns || 1),
-    ])
+    rl.spawnAsyncProcess('node', [ './myTest.js' ])
   }
 }, {
   name: 'echo',
