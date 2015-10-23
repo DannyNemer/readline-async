@@ -19,7 +19,7 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 #### Installation
 ```shell
-npm install dannynemer/dantil
+npm install dannynemer/readline-async
 ```
 
 #### Usage
@@ -37,6 +37,7 @@ rl.addCommands({
       './myTest.js',
       '--num-runs=' + (numRuns || 1),
     ])
+  }
 }, {
   name: 'echo',
   argNames: [ '<string>...' ],
