@@ -72,7 +72,7 @@ RLI when ran from command line (with autocompletion and auto-implemented `.help`
 
 <!-- div -->
 
-### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
+### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [callback])`
 <a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L77 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
@@ -116,7 +116,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 
 <!-- div -->
 
-### <a id="rl-addCommands"></a>`rl.addCommands(commands, [command.argNames])`
+### <a id="rl-addCommands"></a>`rl.addCommands([commands])`
 <a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L193 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
@@ -125,8 +125,11 @@ Registers `commands` for the RLI to parse and execute. Automatically implements 
 Commands are executed in the RLI with a leading period followed by the command name: `.command`. Commands are passed all arguments that follow the command name.
 
 #### Arguments
-1. `commands` *(...Object)*: The commands the RLI will parse and execute.
-2. `[command.argNames]` *(string&#91;&#93;)*: The optional argument names displayed in the RLI usage screen.
+1. `[commands]` *(...Object)*: The commands the RLI will parse and execute.
+2. `command.name` *(string)*: The name that, when prepended with a period in the form `.name`, invokes `command.func`.
+3. `[command.argNames]` *(string&#91;&#93;)*: The optional argument names displayed in the RLI usage screen.
+4. `command.description` *(string)*: The description displayed in the RLI usage screen.
+5. `command.func` *(Function)*: The function the RLI will execute.
 
 #### Example
 ```js

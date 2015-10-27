@@ -154,7 +154,7 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  *
  * @static
  * @memberOf rl
- * @param {...Object} commands The commands the RLI will parse and execute.
+ * @param {...Object} [commands] The commands the RLI will parse and execute.
  * @param {string} command.name The name that, when prepended with a period in the form `.name`, invokes `command.func`.
  * @param {string[]} [command.argNames] The optional argument names displayed in the RLI usage screen.
  * @param {string} command.description The description displayed in the RLI usage screen.
