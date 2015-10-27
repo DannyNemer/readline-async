@@ -34,8 +34,8 @@ rl.addCommands({
   }
 }, {
   name: 'echo',
-  argNames: [ '<string>...' ],
-  description: 'Write <string>... to the standard output.',
+  argNames: [ '<string>' ],
+  description: 'Write <string> to the standard output.',
   func: function (string) {
     console.log(string)
   }

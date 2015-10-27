@@ -36,8 +36,8 @@ rl.addCommands({
   }
 }, {
   name: 'echo',
-  argNames: [ '<string>...' ],
-  description: 'Write <string>... to the standard output.',
+  argNames: [ '<string>' ],
+  description: 'Write <string> to the standard output.',
   func: function (string) {
     console.log(string)
   }
@@ -135,8 +135,8 @@ Commands are executed in the RLI with a leading period followed by the command n
 ```js
 rl.addCommands({
   name: 'echo',
-  argNames: [ '<string>...' ],
-  description: 'Write <string>... to the standard output.',
+  argNames: [ '<string>' ],
+  description: 'Write <string> to the standard output.',
   func: function (string) {
     console.log(string)
   }
@@ -156,9 +156,9 @@ RLI ran from command line (with autocompletion and auto-implemented `.help` comm
 hello
 ❯ .foo
 Commands
-  .echo <string>...  Write <string>... to the standard output.
-  .exit              Terminate RLI.
-  .help              Print this screen.
+  .echo <string>  Write <string> to the standard output.
+  .exit           Terminate RLI.
+  .help           Print this screen.
 
 Unrecognized command: .foo
 ```

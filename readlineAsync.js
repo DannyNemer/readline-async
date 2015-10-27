@@ -163,8 +163,8 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  *
  * rl.addCommands({
  *   name: 'echo',
- *   argNames: [ '<string>...' ],
- *   description: 'Write <string>... to the standard output.',
+ *   argNames: [ '<string>' ],
+ *   description: 'Write <string> to the standard output.',
  *   func: function (string) {
  *     console.log(string)
  *   }
@@ -184,9 +184,9 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  * hello
  * ❯ .foo
  * Commands
- *   .echo <string>...  Write <string>... to the standard output.
- *   .exit              Terminate RLI.
- *   .help              Print this screen.
+ *   .echo <string>  Write <string> to the standard output.
+ *   .exit           Terminate RLI.
+ *   .help           Print this screen.
  *
  * Unrecognized command: .foo
  */
