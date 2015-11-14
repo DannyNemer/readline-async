@@ -11,6 +11,8 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - Automatically implements `.help` command, which displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
 
+- Automatically implements `.history` command, which displays all previous lines of input.
+
 - Automatically removes older history lines that duplicate new ones.
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.

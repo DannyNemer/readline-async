@@ -13,6 +13,8 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - Automatically implements `.help` command, which displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
 
+- Automatically implements `.history` command, which displays all previous lines of input.
+
 - Automatically removes older history lines that duplicate new ones.
 
 - Listens for `^C` (`SIGINT`) in the input stream and prompts the user to confirm before exiting the RLI.
@@ -169,7 +171,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L315 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L332 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
