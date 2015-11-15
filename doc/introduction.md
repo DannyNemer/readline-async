@@ -31,7 +31,7 @@ var rl = require('readline-async')
 rl.addCommands({
   name: 'test',
   description: 'Run \'myTest.js\' as terminable asynchronous child process.',
-  func: function (numRuns) {
+  func: function () {
     rl.spawnAsyncProcess('node', [ './myTest.js' ])
   }
 }, {
@@ -39,7 +39,7 @@ rl.addCommands({
   argNames: [ '<string>' ],
   description: 'Write <string> to the standard output.',
   func: function (string) {
-    console.log(string)
+    console.log(string || '')
   }
 })
 

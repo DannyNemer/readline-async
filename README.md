@@ -33,7 +33,7 @@ var rl = require('readline-async')
 rl.addCommands({
   name: 'test',
   description: 'Run \'myTest.js\' as terminable asynchronous child process.',
-  func: function (numRuns) {
+  func: function () {
     rl.spawnAsyncProcess('node', [ './myTest.js' ])
   }
 }, {
@@ -41,7 +41,7 @@ rl.addCommands({
   argNames: [ '<string>' ],
   description: 'Write <string> to the standard output.',
   func: function (string) {
-    console.log(string)
+    console.log(string || '')
   }
 })
 
@@ -99,7 +99,7 @@ Temporarily disables the RLI's `stdio` (input and output) while the child is pro
 rl.addCommands({
   name: 'test',
   description: 'Run \'myTest.js\' as terminable asynchronous child process.',
-  func: function (numRuns) {
+  func: function () {
     rl.spawnAsyncProcess('node', [ './myTest.js' ])
   }
 })
@@ -119,7 +119,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands([commands])`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L196 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L197 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -140,26 +140,27 @@ rl.addCommands({
   argNames: [ '<string>' ],
   description: 'Write <string> to the standard output.',
   func: function (string) {
-    console.log(string)
+    console.log(string || '')
   }
 }, {
   name: 'exit',
   description: 'Terminate RLI.',
-  func: function (string) {
+  func: function () {
     rl.close()
   }
 })
 ```
-RLI ran from command line (with autocompletion and auto-implemented `.help` command):
+RLI ran from command line (with autocompletion and auto-implemented built-in commands):
 ```
 ❯ <tab>
-.echo  .exit  .help
+.echo     .exit     .history  .help
 ❯ . → .ec<tab> → .echo → .echo hello
 hello
 ❯ .foo
 Commands
   .echo <string>  Write <string> to the standard output.
   .exit           Terminate RLI.
+  .history        Print the RLI history.
   .help           Print this screen.
 
 Unrecognized command: .foo
@@ -171,7 +172,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L332 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L333 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
