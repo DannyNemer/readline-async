@@ -131,7 +131,7 @@ Commands are executed in the RLI with a leading period followed by the command n
 2. `command.name` *(string)*: The name that invokes `command.func` when input to RLI in the form `.name`.
 3. `[command.argNames]` *(string&#91;&#93;)*: The optional argument names displayed in the RLI usage screen.
 4. `command.description` *(string)*: The description displayed in the RLI usage screen.
-5. `command.func` *(Function)*: The function the RLI will execute.
+5. `command.func` *(Function)*: The function the RLI executes.
 
 #### Example
 ```js
