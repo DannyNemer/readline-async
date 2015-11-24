@@ -292,7 +292,18 @@ rl._printUsage = function () {
   util.log(this.usage)
 }
 
-// Include `.history` command in RLI instance by default. Do not use `rl.addCommands()` here to ensure the built-in commands are the last commands in the usage screen and `rl.completer` suggestions.
+
+// Include `.repl` command in RLI instance by default.
+// Do not use `rl.addCommands()` here to ensure the built-in commands are the last commands in the usage screen and `rl.completer` suggestions.
+var replCommandName = '.repl'
+rl.commandNames.push(replCommandName)
+rl.commandDisplayNames[replCommandName] = replCommandName
+rl.commandDescriptions[replCommandName] = 'Enter the Node.js REPL.'
+rl.commands[replCommandName] = function () {
+  childProcess.execSync('node', { stdio: 'inherit' })
+}
+
+// Include `.history` command in RLI instance by default.
 var historyCommandName = '.history'
 rl.commandNames.push(historyCommandName)
 rl.commandDisplayNames[historyCommandName] = historyCommandName
