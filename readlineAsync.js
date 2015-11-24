@@ -179,16 +179,17 @@ rl.spawnAsyncProcess = function (command, args, stdio, callback) {
  *   }
  * })
  * ```
- * RLI ran from command line (with autocompletion and auto-implemented built-in commands):
+ * RLI ran from command line (with autocompletion and auto-implemented commands):
  * ```
  * ❯ <tab>
- * .echo     .exit     .history  .help
+ * .test     .echo     .exit     .repl     .history  .help
  * ❯ . → .ec<tab> → .echo → .echo hello
  * hello
  * ❯ .foo
  * Commands
  *   .echo <string>  Write <string> to the standard output.
  *   .exit           Terminate RLI.
+ *   .repl           Enter the Node.js REPL.
  *   .history        Print the RLI history.
  *   .help           Print this screen.
  *
@@ -291,7 +292,6 @@ rl._generateUsage = function () {
 rl._printUsage = function () {
   util.log(this.usage)
 }
-
 
 // Include `.repl` command in RLI instance by default.
 // Do not use `rl.addCommands()` here to ensure the built-in commands are the last commands in the usage screen and `rl.completer` suggestions.

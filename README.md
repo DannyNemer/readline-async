@@ -11,9 +11,13 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
 
-- Automatically implements `.help` command, which displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
+- Automatically implements the following commands:
 
-- Automatically implements `.history` command, which displays all previous lines of input.
+  - `.help` - Displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
+
+  - `.repl` - Enters the Node.js REPL.
+
+  - `.history` - Displays all previous lines of input.
 
 - Automatically removes older history lines that duplicate new ones.
 
@@ -50,7 +54,7 @@ rl.onLine(function (line) {
   console.log('Thank you for your input:', line)
 })
 ```
-RLI when ran from command line (with autocompletion and auto-implemented `.help` command):
+RLI when ran from command line (with autocompletion and auto-implemented commands):
 ![readline-async demo](https://raw.githubusercontent.com/DannyNemer/readline-async/master/doc/demo.gif)
 
 <!-- div class="toc-container" -->
@@ -119,7 +123,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands([commands])`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L197 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L198 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -150,16 +154,17 @@ rl.addCommands({
   }
 })
 ```
-RLI ran from command line (with autocompletion and auto-implemented built-in commands):
+RLI ran from command line (with autocompletion and auto-implemented commands):
 ```
 ❯ <tab>
-.echo     .exit     .history  .help
+.test     .echo     .exit     .repl     .history  .help
 ❯ . → .ec<tab> → .echo → .echo hello
 hello
 ❯ .foo
 Commands
   .echo <string>  Write <string> to the standard output.
   .exit           Terminate RLI.
+  .repl           Enter the Node.js REPL.
   .history        Print the RLI history.
   .help           Print this screen.
 

@@ -9,9 +9,13 @@ Instantiates a readline `Interface` (RLI) with the following additional features
 
 - `rl.onLine()` - Assigns a function to invoke when the user hits `return` or `enter`, and the input is not a registered command.
 
-- Automatically implements `.help` command, which displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
+- Automatically implements the following commands:
 
-- Automatically implements `.history` command, which displays all previous lines of input.
+  - `.help` - Displays a detailed usage screen of the registered commands, and is automatically invoked upon receiving unrecognized commands.
+
+  - `.repl` - Enters the Node.js REPL.
+
+  - `.history` - Displays all previous lines of input.
 
 - Automatically removes older history lines that duplicate new ones.
 
@@ -48,5 +52,5 @@ rl.onLine(function (line) {
   console.log('Thank you for your input:', line)
 })
 ```
-RLI when ran from command line (with autocompletion and auto-implemented `.help` command):
+RLI when ran from command line (with autocompletion and auto-implemented commands):
 ![readline-async demo](https://raw.githubusercontent.com/DannyNemer/readline-async/master/doc/demo.gif)
