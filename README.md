@@ -78,7 +78,7 @@ RLI when ran from command line (with autocompletion and auto-implemented command
 
 <!-- div -->
 
-### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [callback])`
+### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
 <a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L77 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
@@ -92,7 +92,7 @@ Temporarily disables the RLI's `stdio` (input and output) while the child is pro
 #### Arguments
 1. `command` *(string)*: The command to run as a child process.
 2. `args` *(string&#91;&#93;)*: The command line arguments for `command`.
-3. `[stdio=[ 'ignore', process.stdout, process.stderr ]]` *(string|Array)*: The optional child process's `stdio` configuration.
+3. `[stdio=[ 'ignore', process.stdout, process.stderr ]]` *(string|&#42;&#91;&#93;)*: The optional child process's `stdio` configuration.
 4. `[callback]` *(Function)*: The optional function to execute after the child process exits and before returning control to the RLI.
 
 #### Returns
