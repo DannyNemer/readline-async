@@ -84,10 +84,10 @@ RLI when ran from command line (with autocompletion and auto-implemented command
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
 <br>
+Runs the child process within the user's shell (i.e., `$SHELL`), enabling `args` to contain pipes (e.g., `test | pbcopy`), IO redirection (e.g., `test > file`), globs (e.g., `*.js`), et cetera.
+<br>
+<br>
 Executes `command` as an asynchronous child process, leaving the event loop unblocked, but with the appearance of running synchronously. I.e., the user can not enter input (e.g., commands) during the process, but can terminate the process with `^C` and return to the RLI. In contrast, Node's default RLI blocks the event loop, requiring processes to complete before accepting any input; i.e., the user must externally kill the entire RLI process.
-<br>
-<br>
-Runs the child process within the user's shell (`$SHELL`), enabling `args` to contain pipes (e.g., `test | pbcopy`), IO redirection (e.g., `test > file`), globs (e.g., `*.js`), et cetera.
 <br>
 <br>
 Temporarily disables the RLI's `stdio` (input and output) while the child is processing, except for `^C` (`SIGINT`) to terminate the child. Restores the RLI `stdio` when the child exits or terminates.
