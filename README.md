@@ -79,7 +79,7 @@ RLI when ran from command line (with autocompletion and auto-implemented command
 <!-- div -->
 
 ### <a id="rl-spawnAsyncProcess"></a>`rl.spawnAsyncProcess(command, args, [stdio=[ 'ignore', process.stdout, process.stderr ]], [callback])`
-<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L79 "View in source") [&#x24C9;][1]
+<a href="#rl-spawnAsyncProcess">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L80 "View in source") [&#x24C9;][1]
 
 Spawns a new process within the readline `Interface` (RLI) to asynchronously run `command` with `args`.
 <br>
@@ -117,7 +117,8 @@ rl.addCommands({
 ...
 → user sends `^C` from command line
 Error: Child process terminated due to receipt of signal SIGINT
-❯
+❯ .test | grep "Danny" | pbcopy
+...executing 'myTest.js' and piping output...
 ```
 * * *
 
@@ -126,7 +127,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-addCommands"></a>`rl.addCommands([commands])`
-<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L203 "View in source") [&#x24C9;][1]
+<a href="#rl-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L204 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -180,7 +181,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-onLine"></a>`rl.onLine(func)`
-<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L340 "View in source") [&#x24C9;][1]
+<a href="#rl-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L341 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
