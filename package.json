@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "An asynchronous readline interface for Node.js.",
   "main": "readlineAsync.js",
+  "files": [
+    "readlineAsync.js",
+    "example"
+  ],
   "directories": {
     "doc": "doc",
     "example": "example"
