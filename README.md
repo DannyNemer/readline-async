@@ -127,7 +127,7 @@ Error: Child process terminated due to receipt of signal SIGINT
 <!-- div -->
 
 ### <a id="rl-prototype-addCommands"></a>`rl.prototype.addCommands([commands])`
-<a href="#rl-prototype-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L202 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-addCommands">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L199 "View in source") [&#x24C9;][1]
 
 Registers `commands` for the RLI to parse and execute. Automatically implements `<tab>` autocompletion for the command names.
 <br>
@@ -181,7 +181,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-prototype-onLine"></a>`rl.prototype.onLine(func)`
-<a href="#rl-prototype-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L338 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L335 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
