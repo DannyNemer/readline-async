@@ -181,7 +181,7 @@ Unrecognized command: .foo
 <!-- div -->
 
 ### <a id="rl-prototype-onLine"></a>`rl.prototype.onLine(func)`
-<a href="#rl-prototype-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L335 "View in source") [&#x24C9;][1]
+<a href="#rl-prototype-onLine">#</a> [&#x24C8;](https://github.com/DannyNemer/readline-async/blob/master/readlineAsync.js#L334 "View in source") [&#x24C9;][1]
 
 Assigns an event handler to invoke when the user hits `return` or `enter` and the input is not a registered command (set by `rl.addCommands()`).
 
